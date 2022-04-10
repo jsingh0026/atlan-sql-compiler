@@ -40,7 +40,7 @@ function useTableData(query, currentTab) {
       }
     };
     setTableData();
-  }, [currentTab, response_data, history_data, tableData, tableColumns]);
+  }, [currentTab, response_data, tableData, tableColumns]);// eslint-disable-line react-hooks/exhaustive-deps
   return { columns, data, error, loading };
 }
 
