@@ -14,7 +14,7 @@ function CSVToArray(csvData, delimiter) {
   var matches = null;
   while ((matches = pattern.exec(csvData))) {
     var matchedDelimiter = matches[1];
-    if (matchedDelimiter.length && matchedDelimiter != delimiter) {
+    if (matchedDelimiter.length && matchedDelimiter !== delimiter) {
       data.push([]);
     }
     if (matches[2]) {
