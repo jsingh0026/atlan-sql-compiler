@@ -191,7 +191,7 @@ const Table = ({
                   {pageIndex + 1} of {pageOptions.length}
                 </strong>{' '}
               </span>
-              <span>
+              <span className='mx-2'>
                 | Go to page:{' '}
                 <input
                   className='dark:bg-gray-700'

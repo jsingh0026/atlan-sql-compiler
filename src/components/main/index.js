@@ -32,7 +32,7 @@ export default function Main() {
           setCurrentTab={setCurrentTab}
         />
         <Tabs setCurrentTab={setCurrentTab} currentTab={currentTab} />
-        {error.message ? (
+        {error.message && currentTab === tabs.output ? (
           <div className='py-10 bg-red-800 my-5 text-white'>
             {error.message}
           </div>
