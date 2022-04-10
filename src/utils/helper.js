@@ -18,9 +18,9 @@ function CSVToArray(csvData, delimiter) {
       data.push([]);
     }
     if (matches[2]) {
-      var matchedDelimiter = matches[2].replace(new RegExp('""', 'g'), '"');
+      matchedDelimiter = matches[2].replace(new RegExp('""', 'g'), '"');
     } else {
-      var matchedDelimiter = matches[3];
+      matchedDelimiter = matches[3];
     }
     data[data.length - 1].push(matchedDelimiter);
   }

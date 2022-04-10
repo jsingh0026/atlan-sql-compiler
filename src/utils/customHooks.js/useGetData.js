@@ -7,7 +7,8 @@ function useGetData(table_name) {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState({});
   const file_url = `https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/csv/${table_name}.csv`;
-  const fetchData = () => {
+
+  useEffect(() => {  const fetchData = () => {
     setLoading(true)
     setError({})
     setData([]);
@@ -20,9 +21,8 @@ function useGetData(table_name) {
       .catch((error) => setError(error));
   };
 
-  useEffect(() => {
     if (table_name) fetchData();
-  }, [table_name]);
+  }, [table_name, file_url]);
   return { response_data, error, loading };
 }
 
