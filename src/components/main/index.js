@@ -1,12 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { tabs } from '../../constants';
 import useTableData from '../../utils/customHooks/useTableData';
-// import Editor from '../editor';
-// import Footer from '../footer';
-// import Header from '../header';
 import SkeletonTable from '../skeleton';
-// import Table from '../table';
-// import Tabs from '../tabs';
 
 const Header = lazy(() => import('../header'));
 const Editor = lazy(() => import('../editor'));
@@ -31,7 +26,7 @@ export default function Main() {
   );
   return (
     <div className='dark:bg-gray-900'>
-      <Suspense fallback={<></>}>
+      <Suspense fallback={<>Loading</>}>
         <Header />
         <div className={`mx-6 mt-12 lg:mx-12`}>
           <Editor
