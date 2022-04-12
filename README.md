@@ -14,6 +14,9 @@ react-table   | >=7.7.0
 # Demo Link
 Access this site at: [link](https://sql-compiler.vercel.app/)
 
+# Performance
+
+Access site performance report [here](/site_report/sql-compiler.pdf)
 
 # How to SetUp & Run?
 
