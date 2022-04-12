@@ -3,7 +3,7 @@ import Button from '../button';
 
 function Tabs({setCurrentTab, currentTab}) {
   const selected = (tab) => {
-    if(currentTab === tab) return 'dark:bg-cyan-900 bg-cyan-300 text-white'
+    if(currentTab === tab) return 'dark:bg-cyan-900 bg-cyan-400 text-white'
     return ''
   }
   return (
