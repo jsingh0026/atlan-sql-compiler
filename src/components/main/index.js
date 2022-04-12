@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { tabs } from '../../constants';
 import useTableData from '../../utils/customHooks/useTableData';
-import SkeletonTable from '../skeleton';
 
+const SkeletonTable = lazy(() => import('../skeleton'));
 const Header = lazy(() => import('../header'));
 const Editor = lazy(() => import('../editor'));
 const Tabs = lazy(() => import('../tabs'));
@@ -13,7 +13,7 @@ export default function Main() {
   const [currentTab, setCurrentTab] = React.useState(tabs.query);
   const [query, setQuery] = React.useState('');
   const [value, setValue] = React.useState('select * from customers');
-  const { columns, data, error } = useTableData(query, currentTab);
+  const { columns, data, error, loading } = useTableData(query, currentTab);
   React.useEffect(() => {}, [currentTab, query]);
 
   const skeleton_columns = React.useMemo(
@@ -26,7 +26,7 @@ export default function Main() {
   );
   return (
     <div className='dark:bg-gray-900'>
-      <Suspense fallback={<>Loading</>}>
+      <Suspense fallback={<></>}>
         <Header />
         <div className={`mx-6 mt-12 lg:mx-12`}>
           <Editor
@@ -40,24 +40,17 @@ export default function Main() {
             <div className='py-10 bg-red-800 my-5 text-white'>
               {error.message}
             </div>
+          ) : loading ? (
+            <SkeletonTable columns={skeleton_columns} data={skeleton_data} />
           ) : (
-            <Suspense
-              fallback={
-                <SkeletonTable
-                  columns={skeleton_columns}
-                  data={skeleton_data}
-                />
-              }
-            >
-              <Table
-                data={data}
-                columns={columns}
-                query={query}
-                setQuery={setQuery}
-                setCurrentTab={setCurrentTab}
-                currentTab={currentTab}
-              />
-            </Suspense>
+            <Table
+              data={data}
+              columns={columns}
+              query={query}
+              setQuery={setQuery}
+              setCurrentTab={setCurrentTab}
+              currentTab={currentTab}
+            />
           )}
         </div>
         <Footer />
