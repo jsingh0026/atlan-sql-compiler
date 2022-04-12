@@ -34,8 +34,6 @@ export default function Main() {
       </Suspense>
       {error.message && currentTab === tabs.output ? (
         <div className='py-10 bg-red-800 my-5 text-white'>{error.message}</div>
-      ) : loading ? (
-        <SkeletonTable columns={skeleton_columns} data={skeleton_data} />
       ) : (
         <Suspense
           fallback={
@@ -43,6 +41,7 @@ export default function Main() {
           }
         >
           <Table
+          loading={loading}
             data={data}
             columns={columns}
             query={query}
