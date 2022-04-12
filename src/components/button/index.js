@@ -2,8 +2,8 @@ function Button({ children, className, onClick }) {
   return (
     <button
       className={`
-    bg-transparent 
-    hover:bg-cyan-300 
+    bg-stone-200
+    hover:bg-cyan-500 
     text-cyan-500 
     font-semibold 
     hover:text-white 
