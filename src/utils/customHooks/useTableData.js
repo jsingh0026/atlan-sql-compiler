@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { history_columns, tabs } from '../../constants';
 import { query_columns, query_data } from '../../constants';
-import useGetData from '../customHooks.js/useGetData';
-import useMemoData from '../customHooks.js/useMemoData';
-import useHistory from '../customHooks.js/useHistory';
+import useGetData from './useGetData';
+import useMemoData from './useMemoData';
+import useHistory from './useHistory';
 
 function useTableData(query, currentTab) {
   const { response_data, error, loading } = useGetData(query);

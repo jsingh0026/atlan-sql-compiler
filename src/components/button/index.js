@@ -18,6 +18,7 @@ function Button({ children, className, onClick }) {
     dark:hover:bg-cyan-900 
     dark:border-cyan-500 
     ${className}`}
+    aria-label="custom-button"
     onClick={onClick}
     >
       {children}

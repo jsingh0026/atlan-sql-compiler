@@ -6,16 +6,16 @@ import {
   useSortBy,
   usePagination,
 } from 'react-table';
-import { CSVLink } from "react-csv";
+import { CSVLink } from 'react-csv';
 import { FaFileCsv } from 'react-icons/fa';
 import { tabs } from '../../constants';
-import useHistory from '../../utils/customHooks.js/useHistory';
+import useHistory from '../../utils/customHooks/useHistory';
 import Button from '../button';
 
 function GlobalFilter({
   preGlobalFilteredRows,
   globalFilter,
-  setGlobalFilter
+  setGlobalFilter,
 }) {
   const count = preGlobalFilteredRows.length;
   const [value, setValue] = React.useState(globalFilter);
@@ -47,7 +47,7 @@ const Table = ({
   setQuery,
   setCurrentTab,
   currentTab,
-  query
+  query,
 }) => {
   const {
     getTableProps,
@@ -85,7 +85,7 @@ const Table = ({
       const value = row.values.query || row.values.history;
       var table_name =
         value.split(' ')[value.toLowerCase().split(' ').indexOf('from') + 1];
-      setHistory(value);    
+      setHistory(value);
       setQuery(table_name);
       setCurrentTab(tabs.output);
     }
@@ -100,12 +100,11 @@ const Table = ({
         />
         {currentTab === tabs.output && data.length && (
           <CSVLink data={data} filename={query}>
-          <Button className={'mx-2 !p-1'}>
-            
-            <FaFileCsv />
-            Download
-          </Button>
-            </CSVLink>
+            <Button className={'mx-2 !p-1'}>
+              <FaFileCsv />
+              Download
+            </Button>
+          </CSVLink>
         )}
       </div>
       <div className='overflow-x-auto sm:-mx-6 lg:-mx-8'>
@@ -194,6 +193,7 @@ const Table = ({
               <span className='mx-2'>
                 | Go to page:{' '}
                 <input
+                  aria-label='lbl-table-index'
                   className='dark:bg-gray-700'
                   type='number'
                   defaultValue={pageIndex + 1}

@@ -10,6 +10,7 @@ function Footer() {
           target='_blank'
           rel="noopener noreferrer"
           type='button'
+          aria-label="codebase"
         >
             <FaGithub className='mx-2 h-6 w-6'/>
         </a>
@@ -19,6 +20,7 @@ function Footer() {
           target='_blank'
           rel="noopener noreferrer"
           type='button'
+          aria-label="creator"
         >
             <FaGithubAlt className='mx-2 h-6 w-6'/>
         </a>

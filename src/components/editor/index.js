@@ -9,7 +9,7 @@ import 'ace-builds/src-noconflict/theme-xcode';
 
 import { ThemeContext } from '../../themeContext';
 import Button from '../button';
-import useHistory from '../../utils/customHooks.js/useHistory';
+import useHistory from '../../utils/customHooks/useHistory';
 import { tabs } from '../../constants';
 
 const Editor = ({
